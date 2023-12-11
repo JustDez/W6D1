@@ -4,8 +4,8 @@ from flask_login import login_user, logout_user
 
 
 #internal import 
-from rangers_shop.models import User, db 
-from rangers_shop.forms import RegisterForm, LoginForm
+from duel_monster_shop.models import User, db 
+from duel_monster_shop.forms import RegisterForm, LoginForm
 
 
 

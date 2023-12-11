@@ -7,10 +7,10 @@
 <div class="container-fluid justify-content-center">
     <div class="row shop-header p-5">
         <div class="col-3 ms-5 d-flex flex-column justify-content-center">
-            <h2>Welcome to your Shop!</h2>
+            <h2>Welcome to your Duel Shop!</h2>
             {% if current_user.is_authenticated %}
-            <h5>All your products will show up here</h5>
-            <a href="{{ url_for('site.create')}}" class="btn btn-outline-dark mt-3">Create New Products</a>
+            <h5>View your Duel Monsters below</h5>
+            <a href="{{ url_for('site.create')}}" class="btn btn-outline-light mt-3">Add New Duel Monsters</a>
             {% else %}
             <h5>Please Sign In to View Shop</h5>
             <a href="/signin" class="btn btn-outline-dark mt-3">Sign In</a>

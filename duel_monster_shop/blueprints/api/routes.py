@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify 
 from flask_jwt_extended import create_access_token, jwt_required 
-from rangers_shop.models import Customer, Product, ProdOrder, Order, db, product_schema, products_schema 
+from duel_monster_shop.models import Customer, Product, ProdOrder, Order, db, product_schema, products_schema 
 
 
 
@@ -64,7 +64,7 @@ def create_order(cust_id):
         order.increment_ordertotal(prodorder.price)
 
         current_product = Product.query.get(product['prod_id'])
-        #need to decrement the total quantitty available based on how much the customer bought
+        #need to decrement the total quantity available based on how much the customer bought
         current_product.decrement_quantity(product['quantity'])
 
     db.session.commit()

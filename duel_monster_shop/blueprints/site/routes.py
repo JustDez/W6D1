@@ -2,8 +2,8 @@ from flask import Blueprint, flash, redirect, render_template, request
 
 
 #internal import 
-from rangers_shop.models import Product, Customer, Order, db 
-from rangers_shop.forms import ProductForm
+from duel_monster_shop.models import Product, Customer, Order, db 
+from duel_monster_shop.forms import ProductForm
 
 
 
@@ -29,7 +29,7 @@ def shop():
     }
 
 
-    our_class = "Rangers are the best "
+    our_class = "Super Special Awesome!"
                             #whats on left side is html, right side is whats in our route
     return render_template('shop.html', shop=allprods, coolmessage = our_class, stats=shop_stats ) #looking inside our template_folder (site_templates) to find our shop.html file
 
