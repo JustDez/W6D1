@@ -29,7 +29,7 @@ def shop():
     }
 
 
-    our_class = "Super Special Awesome!"
+    our_class = "Heart of the Cards!"
                             #whats on left side is html, right side is whats in our route
     return render_template('shop.html', shop=allprods, coolmessage = our_class, stats=shop_stats ) #looking inside our template_folder (site_templates) to find our shop.html file
 

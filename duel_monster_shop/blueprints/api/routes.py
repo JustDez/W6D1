@@ -80,16 +80,16 @@ def create_order(cust_id):
 def get_order(cust_id):
 
     #need to grab all prodorders associated with that customer
-    Prodorder = ProdOrder.query.filter(ProdOrder.cust_id == cust_id).all()
+    prodorder = ProdOrder.query.filter(ProdOrder.cust_id == cust_id).all()
 
 
     data = []
 
     for order in prodorder:
 
-        product = Product.quert.filter(Product.prod_id == order.prod_id).first()
+        product = Product.query.filter(Product.prod_id == order.prod_id).first()
 
-        product_dict = product_schema.dum(product)
+        product_dict = product_schema.dump(product)
 
         product_dict['quantity'] = order.quantity #this is the quantity
         product_dict['order_id'] = order.order_id #this is the order info
@@ -123,7 +123,7 @@ def update_order(order_id):
 
 
     if prodorder.quantity > new_quantity:
-        product.increment_quantity(diff) #we are putting some products back
+        product.increment_quantity(diff) #to put some products back
         order.decrement_ordertotal(prodorder.price)#our order total is less $ now
 
     elif prodorder.quantity < new_quantity:
@@ -154,8 +154,8 @@ def delete_order(order_id):
     product = Product.query.get(prod_id)
 
 
-    order.decrement_ordertotal(prodorder.price) #less $ because deleted a product from our order
-    product.increment_quantity(prodorder.quantity) #getting back some quantity 
+    order.decrement_ordertotal(prodorder.price) 
+    product.increment_quantity(prodorder.quantity) 
 
     db.session.delete(prodorder)
     db.session.commit()
